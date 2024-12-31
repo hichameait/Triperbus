@@ -26,7 +26,7 @@ document.getElementById("botona").addEventListener("click", ()=>{
     let dep = parseFloat(document.getElementById("cities_from").value)
     let arv = parseFloat(document.getElementById("cities_to").value)
     if(dep === arv){
-        document.getElementById("card1").innerHTML = ("Ops! ywe cloud find your trips")
+        document.getElementById("card1").innerHTML = ("Ops! we couldn't find your trips")
     }
     fetch("trips-data.json")
     .then(res => res.json())
