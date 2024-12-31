@@ -37,7 +37,7 @@ document.getElementById("botona").addEventListener("click", ()=>{
                 /// data[ids]["trips"].length
 
                 if(data[ids]["trips"].length === 0) {
-                    document.getElementById("card1").innerHTML = ("Ops! ywe cloud find your trips")
+                    document.getElementById("card1").innerHTML = ("Ops! we cloudn't find your trips")
                 }else{
                     data[ids]["trips"].forEach(kar => {
                         document.getElementById("card1").innerHTML = `<h4>Trip from ${data[ids]["dep"]} to ${data[ids]["arv"]} :</h4>`
