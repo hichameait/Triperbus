@@ -1,4 +1,4 @@
-const url = "https://vqz7csr8-3000.uks1.devtunnels.ms";
+const url = "https://api.domain.com/v1/";
 
 const selection_from = document.getElementById("cities_from");
 const selection_to = document.getElementById("cities_to");
@@ -33,7 +33,7 @@ async function Get_Cities() {
 }
 Get_Cities();
 
-document.getElementById("botona").addEventListener("click", () => {
+document.getElementById("ser").addEventListener("click", () => {
     const dep = parseFloat(selection_from.value);
     const arv = parseFloat(selection_to.value);
 
