@@ -1,4 +1,4 @@
-const url = "https://api.domain.com/v1/";
+const url = "http://localhost:3000";
 
 const selection_from = document.getElementById("cities_from");
 const selection_to = document.getElementById("cities_to");
@@ -7,7 +7,8 @@ const resultContainer = document.getElementById("card1");
 
 async function Get_Cities() {
     try {
-        const response = await fetch(`${url}/cities`);
+        // const response = await fetch(`${url}/cities`);
+        const response = await fetch("../data/cities.json");
         const data = await response.json();
 
         selection_from.innerHTML = `<option value="" disabled selected>Select Departure City</option>`;
