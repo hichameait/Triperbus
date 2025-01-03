@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  outline: none;
+  font-family: "poppins";
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/5080255.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.nav-bare {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  padding:20px 120px ;
+  margin-left: auto;
+  margin-right: auto;
+ border-bottom-left-radius: 50px;
+border-bottom-right-radius: 50px;
+  min-height: 100px;
+
+}
+.logo a {
+  color: black;
+  font-size: 16px;
+  padding: 10px 7px;
+  text-transform: capitalize;
+  color: #042a59;
+}
+.list-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #eee;
+  padding: 0px 20px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.list-nav li {
+  padding: 15px 7px;
+  position: relative;
+  overflow: hidden;
+}
+
+.list-nav li a {
+  color: black;
+  text-transform: capitalize;
+  font-size: 16px;
+  transition: 0.5s ease-in-out;
+  color: #042a59;
+}
+.list-nav li::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  left: -100%;
+  bottom: 0px;
+  background-color: #042a59;
+  transition: 0.5s ease-in-out;
+}
+.list-nav li:hover::before {
+  left: 0;
+}
+.left-nav button {
+  padding: 10px 10px;
+  font-size: 16px;
+  background-color: #042a59;
+  border-radius: 10px;
+  text-transform: capitalize;
+  font-weight: 400;
+  color: white;
+  transition: 0.5s ease-in-out;
+}
+.left-nav button:hover {
+  background-color: #094c9e;
+}
+
+.section{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 75%;
+    background-color:  #4480ca;
+    height: auto;
+    padding: 100px 50px ;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    border: 5px solid #cea25c9a;
+}
+.section .info{
+    margin-left: 6%;
+}
+.section h1{
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 10px 0px;
+}
+.section p{
+    margin-left: 30px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #7777;
+}
