@@ -1,55 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <title>transport-time</title>
+  <title>TriperBus - Explore Morocco by Bus</title>
 </head>
-
 <body>
-  <div class="container">
-    <div class="nav-bare">
+  <header>
+    <nav class="navbar">
       <div class="logo">
-        <a href="">time-transport</a>
+        <a href="index.html">
+          <span class="logo-icon"><i class="fas fa-bus-alt"></i></span>
+          <span class="logo-text">TriperBus</span>
+        </a>
       </div>
-      <ul class="list-nav">
-        <li><a href="">home</a></li>
-        <li><a href="">about us</a></li>
-        <li><a href="">tiket</a></li>
-        <li><a href="">contact us</a></li>
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#travel-tips">Travel Tips</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav-cta"><a href="#login" class="btn btn-outline">Login</a></li>
       </ul>
-      <div class="left-nav">
-        <button>get started</button>
-      </div>
-    </div>
-    <div class="section">
-      <div class="info">
-        <h1 class="front">tanger,morocco</h1>
-        <p class="front">your devide fore your travle in moroco an the world</p>
-        <p class="front">wellcom to oure world</p>
-      </div>
-      <div class="input-container front">
-        <div class="frist front">
-          <select id="cities_from" name=""></select>
-          <select id="cities_to" name=""></select>
-
-          <button class="ser front">Search</button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Discover Morocco by Bus</h1>
+        <p>Explore the beauty and culture of Morocco with comfortable and reliable bus transportation</p>
+        <div class="search-container">
+          <div class="search-form-wrapper">
+            <h2>Find Your Journey</h2>
+            <div class="search-form">
+              <div class="form-group from-group">
+                <label for="cities_from">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>From</span>
+                </label>
+                <select id="cities_from" name="cities_from"></select>
+              </div>
+              <div class="direction-icon">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+              <div class="form-group to-group">
+                <label for="cities_to">
+                  <i class="fas fa-map-pin"></i>
+                  <span>To</span>
+                </label>
+                <select id="cities_to" name="cities_to"></select>
+              </div>
+              <button id="ser" class="btn btn-primary search-btn">
+                <i class="fas fa-search"></i> Find Routes
+              </button>
+            </div>
+          </div>
+          <div id="card1" class="results-container"></div>
         </div>
-        <div class="card1 front">
-
+      </div>
+    </section>
+    <section id="destinations" class="destinations">
+      <div class="section-header">
+        <h2>Popular Destinations</h2>
+        <p>Explore Morocco's most visited cities</p>
+      </div>
+      
+      <div id="dest-cards" class="destination-cards">
+       
+      </div>
+    </section>
+    <section id="travel-tips" class="travel-tips">
+      <div class="section-header">
+        <h2>Morocco Travel Tips</h2>
+        <p>Make the most of your journey through Morocco</p>
+      </div>
+      <div class="tips-container">
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>Best Time to Visit</h3>
+          <p>Spring (March to May) and Fall (September to November) offer the most pleasant temperatures for exploring Morocco.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-language"></i>
+          </div>
+          <h3>Language</h3>
+          <p>Arabic and Berber are official languages, but French is widely spoken in cities. Learn basic greetings in Arabic.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <h3>Currency</h3>
+          <p>The Moroccan Dirham (MAD) is the local currency. ATMs are widely available in cities but bring cash for rural areas.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <h3>Food & Drink</h3>
+          <p>Try tagine, couscous, and mint tea. Street food is delicious but stick to busy stalls with high turnover.</p>
+        </div>
+      </div>
+      <div class="ai-planner">
+        <div class="ai-planner-content">
+          <h3>Plan Your Trip with AI</h3>
+          <p>Get personalized travel recommendations based on your preferences</p>
+          <button class="btn btn-secondary" id="open-ai-planner">
+            <i class="fas fa-robot"></i> Create AI Travel Plan
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="about">
+      <div class="section-header">
+        <h2>About TriperBus</h2>
+        <p>Your trusted partner for bus travel in Morocco</p>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957" alt="Bus travel in Morocco">
+        </div>
+        <div class="about-text">
+          <h3>Our Story</h3>
+          <p>Founded in 2015, TriperBus has grown to become Morocco's leading bus schedule platform, connecting travelers to over 100 destinations across the country.</p>
+          <h3>Our Mission</h3>
+          <p>We're dedicated to making bus travel in Morocco simple, accessible, and enjoyable for both locals and tourists.</p>
+          <h3>Why Choose Us</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Real-time schedules from multiple bus companies</li>
+            <li><i class="fas fa-check-circle"></i> Easy comparison of routes, times, and prices</li>
+            <li><i class="fas fa-check-circle"></i> Verified user reviews of bus services</li>
+            <li><i class="fas fa-check-circle"></i> 24/7 customer support in multiple languages</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact">
+      <div class="section-header">
+        <h2>Contact Us</h2>
+        <p>We're here to help with your travel questions</p>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h3>Address</h3>
+              <p>123 Avenue Mohammed V, Casablanca, Morocco</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h3>Phone</h3>
+              <p>+212 522 123 456</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h3>Email</h3>
+              <p>info@triperbus.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h3>Working Hours</h3>
+              <p>Monday - Friday: 9am - 6pm</p>
+              <p>Saturday: 10am - 4pm</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-header">
+        <h2>Welcome Back</h2>
+        <p>Sign in to access your saved trips and preferences</p>
+      </div>
+      <div class="modal-body">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="login">Login</button>
+          <button class="tab-btn" data-tab="register">Register</button>
+        </div>
+        <div id="login-tab" class="tab-content active">
+          <form id="login-form">
+            <div class="form-group">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" name="login-email" required>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" name="login-password" required>
+            </div>
+            <div class="form-group remember-me">
+              <input type="checkbox" id="remember" name="remember">
+              <label for="remember">Remember me</label>
+              <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </form>
+          <div class="social-login">
+            <p>Or login with</p>
+            <div class="social-buttons">
+              <button class="btn btn-social btn-google">
+                <i class="fab fa-google"></i> Google
+              </button>
+              <button class="btn btn-social btn-facebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="register-tab" class="tab-content">
+          <form id="register-form">
+            <div class="form-group">
+              <label for="register-name">Full Name</label>
+              <input type="text" id="register-name" name="register-name" required>
+            </div>
+            <div class="form-group">
+              <label for="register-email">Email</label>
+              <input type="email" id="register-email" name="register-email" required>
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password</label>
+              <input type="password" id="register-password" name="register-password" required>
+            </div>
+            <div class="form-group">
+              <label for="register-confirm">Confirm Password</label>
+              <input type="password" id="register-confirm" name="register-confirm" required>
+            </div>
+            <div class="form-group terms">
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
+  <div id="ai-planner-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-header">
+        <h2>AI Trip Planner</h2>
+        <p>Let our AI help you create the perfect Morocco itinerary</p>
+      </div>
+      <div class="modal-body">
+        <form id="ai-planner-form">
+          <div class="form-group">
+            <label for="trip-duration">Trip Duration (days)</label>
+            <input type="number" id="trip-duration" name="trip-duration" min="1" max="30" value="7" required>
+          </div>
+          <div class="form-group">
+            <label for="trip-interests">Your Interests</label>
+            <div class="interest-tags">
+              <div class="interest-tag">
+                <input type="checkbox" id="interest-culture" name="interests" value="culture">
+                <label for="interest-culture">Culture & History</label>
+              </div>
+              <div class="interest-tag">
+                <input type="checkbox" id="interest-nature" name="interests" value="nature">
+                <label for="interest-nature">Nature & Landscapes</label>
+              </div>
+              <div class="interest-tag">
+                <input type="checkbox" id="interest-food" name="interests" value="food">
+                <label for="interest-food">Food & Cuisine</label>
+              </div>
+              <div class="interest-tag">
+                <input type="checkbox" id="interest-adventure" name="interests" value="adventure">
+                <label for="interest-adventure">Adventure</label>
+              </div>
+              <div class="interest-tag">
+                <input type="checkbox" id="interest-shopping" name="interests" value="shopping">
+                <label for="interest-shopping">Shopping</label>
+              </div>
+              <div class="interest-tag">
+                <input type="checkbox" id="interest-relaxation" name="interests" value="relaxation">
+                <label for="interest-relaxation">Relaxation</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="trip-budget">Budget Level</label>
+            <select id="trip-budget" name="trip-budget" required>
+              <option value="budget">Budget</option>
+              <option value="moderate" selected>Moderate</option>
+              <option value="luxury">Luxury</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="trip-starting-city">Starting City</label>
+            <select id="trip-starting-city" name="trip-starting-city" required>
+              <option value="">Select a city</option>
+              <option value="casablanca">Casablanca</option>
+              <option value="marrakech">Marrakech</option>
+              <option value="fes">Fes</option>
+              <option value="tangier">Tangier</option>
+              <option value="rabat">Rabat</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fas fa-magic"></i> Generate Itinerary
+          </button>
+        </form>
+        <div id="ai-result" class="ai-result hidden">
+          <div class="ai-loading">
+            <div class="spinner"></div>
+            <p>Creating your perfect Morocco itinerary...</p>
+          </div>
+          <div class="ai-itinerary hidden">
+            <h3>Your Personalized Itinerary</h3>
+            <div id="itinerary-content"></div>
+            <div class="itinerary-actions">
+              <button class="btn btn-outline" id="save-itinerary">
+                <i class="fas fa-save"></i> Save Itinerary
+              </button>
+              <button class="btn btn-primary" id="book-itinerary">
+                <i class="fas fa-ticket-alt"></i> Book Bus Tickets
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <a href="index.html">
+          <span class="logo-icon"><i class="fas fa-bus-alt"></i></span>
+          <span class="logo-text">TriperBus</span>
+        </a>
+        <p>Your gateway to exploring Morocco by bus</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#travel-tips">Travel Tips</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Popular Routes</h3>
+          <ul>
+            <li><a href="#">Casablanca to Marrakech</a></li>
+            <li><a href="#">Marrakech to Essaouira</a></li>
+            <li><a href="#">Fes to Chefchaouen</a></li>
+            <li><a href="#">Tangier to Tetouan</a></li>
+            <li><a href="#">Rabat to Casablanca</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Booking Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-newsletter">
+        <h3>Subscribe to Our Newsletter</h3>
+        <p>Get the latest updates and travel tips</p>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 TriperBus. All rights reserved.</p>
+      <div class="payment-methods">
+        <i class="fab fa-cc-visa"></i>
+        <i class="fab fa-cc-mastercard"></i>
+        <i class="fab fa-cc-paypal"></i>
+      </div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
 </body>
-<script src="app.js"></script>
-
 </html>

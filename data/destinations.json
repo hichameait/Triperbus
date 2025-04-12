@@ -1,0 +1,158 @@
+[
+  {
+    "id": "4",
+    "name": "Casablanca",
+    "image": "http://api.mosafir.ma/uploads/images/23bacb024a33cd5f370dc1971.webp",
+    "description": "Modern city and Morocco’s business hub"
+  },
+  {
+    "id": "5",
+    "name": "Tetouan",
+    "image": "http://api.mosafir.ma/uploads/images/869999f23a5dc4e5f3f396383.webp",
+    "description": "Andalusian city with a historic medina"
+  },
+  {
+    "id": "6",
+    "name": "Fes",
+    "image": "http://api.mosafir.ma/uploads/images/4b32eecd1592838634072f5d6.webp",
+    "description": "Ancient city with the world's oldest university"
+  },
+  {
+    "id": "7",
+    "name": "Chefchaouen ",
+    "image": "http://api.mosafir.ma/uploads/images/d7a3b8f4ef2b8a41f270bd15c.webp",
+    "description": "The famous blue city nestled in the mountains"
+  },
+  {
+    "id": "8",
+    "name": "Rabat",
+    "image": "http://api.mosafir.ma/uploads/images/99d630fe9a1662dfa2a6598b7.webp",
+    "description": "Capital city with royal landmarks"
+  },
+  {
+    "id": "9",
+    "name": "Tangier",
+    "image": "http://api.mosafir.ma/uploads/images/91fc27bc0afb2d62f9505f400.webp",
+    "description": "Port city where cultures meet"
+  },
+  {
+    "id": "10",
+    "name": "Oujda",
+    "image": "http://api.mosafir.ma/uploads/images/4a6304b1d78cccdf3d09d7373.webp",
+    "description": "Eastern city with musical heritage"
+  },
+  {
+    "id": "12",
+    "name": "Ifrane",
+    "image": "http://api.mosafir.ma/uploads/images/76993642e8170f5b9039b9c67.webp",
+    "description": "Alpine-style town with snowy winters"
+  },
+  {
+    "id": "13",
+    "name": "Marrakesh",
+    "image": "http://api.mosafir.ma/uploads/images/446ab7cfb91316b02f0fd08bb.webp",
+    "description": "Red city full of life and color"
+  },
+  {
+    "id": "15",
+    "name": "Meknes",
+    "image": "http://api.mosafir.ma/uploads/images/40e8f684f5c8c43d09fec48a2.webp",
+    "description": "Imperial city with grand gates"
+  },
+  {
+    "id": "16",
+    "name": "Nador",
+    "image": "http://api.mosafir.ma/uploads/images/eb1744d7f28761ee0c1b2e8da.webp",
+    "description": "Coastal city by the lagoon"
+  },
+  {
+    "id": "17",
+    "name": "Al Hoceima",
+    "image": "http://api.mosafir.ma/uploads/images/14b6ab2e8a7b5256cb2505a17.webp",
+    "description": "Beach city on the Mediterranean"
+  },
+  {
+    "id": "18",
+    "name": "Agadir",
+    "image": "http://api.mosafir.ma/uploads/images/06fa43c497a7197bef011e899.webp",
+    "description": "Sunny city with long beaches"
+  },
+  {
+    "id": "19",
+    "name": "Essaouira",
+    "image": "http://api.mosafir.ma/uploads/images/ea19dae8dfb44c6694040c1ac.webp",
+    "description": "Windy city with a coastal charm"
+  },
+  {
+    "id": "20",
+    "name": "Safi",
+    "image": "http://api.mosafir.ma/uploads/images/31a32ea0b7cc36a88f5c3e209.webp",
+    "description": "Known for pottery and fishing"
+  },
+  {
+    "id": "21",
+    "name": "El Jadida",
+    "image": "http://api.mosafir.ma/uploads/images/81a076c5229d8191350804eff.webp",
+    "description": "Historic port with Portuguese roots"
+  },
+  {
+    "id": "23",
+    "name": "Salé",
+    "image": "http://api.mosafir.ma/uploads/images/f7d4519e9cbb405b3aa126457.webp",
+    "description": "Traditional town near Rabat"
+  },
+  {
+    "id": "24",
+    "name": "Kenitra ",
+    "image": "http://api.mosafir.ma/uploads/images/0f85c02f4a06fc5e8645284d7.webp",
+    "description": "Agricultural and coastal city"
+  },
+  {
+    "id": "25",
+    "name": "Larache",
+    "image": "http://api.mosafir.ma/uploads/images/6f387d87adc22922582d85414.webp",
+    "description": "Quiet city with Spanish history"
+  },
+  {
+    "id": "27",
+    "name": "Asilah",
+    "image": "http://api.mosafir.ma/uploads/images/91141c6c092a64d8897f00019.webp",
+    "description": "Artistic coastal town with murals"
+  },
+  {
+    "id": "29",
+    "name": "Taza",
+    "image": "http://api.mosafir.ma/uploads/images/a19b0474403c9a3edf6240ce7.webp",
+    "description": "Mountain town with historic roots"
+  },
+  {
+    "id": "31",
+    "name": "Saïdia",
+    "image": "http://api.mosafir.ma/uploads/images/a681a34046e1926d2dfd35240.webp",
+    "description": "Popular beach resort in the north"
+  },
+  {
+    "id": "33",
+    "name": "Figuig",
+    "image": "http://api.mosafir.ma/uploads/images/1e41a1856278fedde80fa75dd.webp",
+    "description": "Oasis town in the desert"
+  },
+  {
+    "id": "34",
+    "name": "Sefrou",
+    "image": "http://api.mosafir.ma/uploads/images/d5bc8b93ca5e8386a98031512.webp",
+    "description": "Charming town known for cherries"
+  },
+  {
+    "id": "36",
+    "name": "Azrou",
+    "image": "http://api.mosafir.ma/uploads/images/173301842171081a0b9e52bd0.webp",
+    "description": "Forest town famous for monkeys"
+  },
+  {
+    "id": "73",
+    "name": "Dakhla",
+    "image": "http://api.mosafir.ma/uploads/images/9c819164a1922fb3ed453ffc2.webp",
+    "description": "Desert lagoon and kitesurfing spot"
+  }
+]

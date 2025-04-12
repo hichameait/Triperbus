@@ -12,8 +12,10 @@ let citiesData = {};
 try {
   const tripsdata = fs.readFileSync("./data/trips-data.json", "utf8");
   const citiesdata = fs.readFileSync("./data/cities.json", "utf8");
+  const destinationsData = fs.readFileSync("./data/destinations.json", "utf8");
   tripsData = JSON.parse(tripsdata);
   citiesData = JSON.parse(citiesdata);
+  destinations = JSON.parse(destinationsData);
   console.log("JSON data loaded successfully.");
 } catch (error) {
   console.error("Error loading JSON data:", error.message);
@@ -44,6 +46,21 @@ app.get("/trips", (req, res) => {
     res.status(404).json({ error: "Data not found for the specified dep and arv" });
   }
 });
+
+app.get("/destinations", (req, res) => {
+  const { limit } = req.query;
+  if (!limit) {
+    res.json(destinations);
+  } else {
+    const newArray = destinations.slice(0, Math.min(limit, destinations.length));
+    res.json(newArray);
+  }
+});
+
+app.get("/trip", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "trip.html"));
+});
+
 
 
 app.listen(PORT, () => {

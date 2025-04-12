@@ -12,5 +12,14 @@
   "dependencies": {
     "axios": "^1.7.9",
     "express": "^4.21.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hichameait/transport-time.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hichameait/transport-time/issues"
+  },
+  "homepage": "https://github.com/hichameait/transport-time#readme"
 }
