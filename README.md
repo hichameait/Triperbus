@@ -113,7 +113,7 @@ This project is licensed under the MIT License.
 ## 🙌 Acknowledgments
 - Font Awesome for icons
 - Unsplash for destination images
-- OpenAI/HuggingFace for AI itinerary generation (optional)
+- gemini for AI itinerary generation (optional)
 
 ---
 
