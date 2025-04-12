@@ -343,71 +343,132 @@ function switchTab(e){
   e.target.classList.add("active")
   document.getElementById(`${tabId}-tab`).classList.add("active")
 }
-function generateAIItinerary(e){
-  e.preventDefault()
-  aiResult.classList.remove("hidden")
-  aiLoading.style.display="block"
-  aiItinerary.classList.add("hidden")
-  const duration=document.getElementById("trip-duration").value
-  const startingCity=document.getElementById("trip-starting-city").value
-  const budget=document.getElementById("trip-budget").value
-  const interests=[]
-  document.querySelectorAll('input[name="interests"]:checked').forEach((checkbox)=>{
-    interests.push(checkbox.value)
-  })
-  setTimeout(()=>{
-    aiLoading.style.display="none"
-    aiItinerary.classList.remove("hidden")
-    let itinerary=`<h4>${duration}-Day ${startingCity.charAt(0).toUpperCase()+startingCity.slice(1)} Itinerary (${budget.charAt(0).toUpperCase()+budget.slice(1)} Budget)</h4>`
-    itinerary+=`<p>Based on your interests: ${interests.join(", ")}</p>`
-    for(let i=1;i<=Math.min(duration,7);i++){
-      itinerary+=`
-                <div class="itinerary-day">
-                    <h5>Day ${i}</h5>
-                    <ul>
-            `
-      if(i===1){
-        itinerary+=`<li>Morning: Explore ${startingCity.charAt(0).toUpperCase()+startingCity.slice(1)} city center</li>`
-      }else{
-        if(interests.includes("culture")){
-          itinerary+=`<li>Morning: Visit local museum or historical site</li>`
-        }else if(interests.includes("nature")){
-          itinerary+=`<li>Morning: Hike in nearby natural park</li>`
-        }else{
-          itinerary+=`<li>Morning: Explore local markets</li>`
-        }
-      }
-      if(interests.includes("food")){
-        itinerary+=`<li>Lunch: Traditional Moroccan cuisine at local restaurant</li>`
-      }else{
-        itinerary+=`<li>Lunch: Meal at recommended café</li>`
-      }
-      if(interests.includes("shopping")){
-        itinerary+=`<li>Afternoon: Shopping in the medina</li>`
-      }else if(interests.includes("adventure")){
-        itinerary+=`<li>Afternoon: Desert excursion or water activities</li>`
-      }else{
-        itinerary+=`<li>Afternoon: Guided city tour</li>`
-      }
-      if(interests.includes("relaxation")){
-        itinerary+=`<li>Evening: Relax at a spa or hammam</li>`
-      }else{
-        itinerary+=`<li>Evening: Dinner and cultural entertainment</li>`
-      }
-      itinerary+=`
-                    </ul>
-                </div>
-            `
+
+async function generateAIItinerary(e) {
+    e.preventDefault();
+    aiResult.classList.remove("hidden");
+    aiLoading.style.display = "block";
+    aiItinerary.classList.add("hidden");
+  
+    const duration = document.getElementById("trip-duration").value;
+    const startingCity = document.getElementById("trip-starting-city").value;
+    const budget = document.getElementById("trip-budget").value;
+    const interests = [];
+  
+    document.querySelectorAll('input[name="interests"]:checked').forEach((checkbox) => {
+      interests.push(checkbox.value);
+    });
+  
+    const prompt = `Create a detailed ${duration}-day travel itinerary for ${startingCity} with a ${budget} budget.
+    The traveler is interested in: ${interests.join(", ")}.
+    
+    Please respond with a JSON array where each element represents a day.
+    Each day object should have this structure:
+    {
+      "day": "Day X",
+      "morning": "activity description",
+      "lunch": "recommendation",
+      "afternoon": "activity description",
+      "evening": "activity description"
     }
-    itinerary+=`
-            <div class="transportation-info">
-                <h5>Transportation</h5>
-                <p>Bus tickets will be available for booking between all destinations in your itinerary.</p>
-            </div>
-        `
-    itineraryContent.innerHTML=itinerary
-  },2000)
+    
+    Make the itinerary personalized for their interests and budget.
+    Return ONLY the JSON array, without any additional text or explanations.`;
+  
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDZceXIKrkS5J8Qm-JBxuamZWGwBD28uvM`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: prompt
+            }]
+          }]
+        })
+      });
+        
+      if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+      }
+  
+      const data = await response.json();
+      
+      // Extract the text response from Gemini API
+      const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text || "[]";
+      
+      // Clean the response by removing markdown code blocks
+      let jsonString = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+      
+      // Try to parse the JSON response
+      let itineraryDays = [];
+      try {
+        itineraryDays = JSON.parse(jsonString);
+        if (!Array.isArray(itineraryDays)) {
+          throw new Error("Response is not an array");
+        }
+      } catch (parseError) {
+        console.error("Failed to parse JSON response:", parseError);
+        throw new Error("AI returned invalid format. Please try again.");
+      }
+  
+      aiLoading.style.display = "none";
+      aiItinerary.classList.remove("hidden");
+  
+      let itinerary = `<h4>${duration}-Day ${startingCity.charAt(0).toUpperCase() + startingCity.slice(1)} Itinerary (${budget.charAt(0).toUpperCase() + budget.slice(1)} Budget)</h4>`;
+      itinerary += `<p>Based on your interests: ${interests.join(", ")}</p>`;
+  
+      // Process each day from the array
+      itineraryDays.forEach((dayData, index) => {
+        const dayNumber = index + 1;
+        itinerary += `
+          <div class="itinerary-day">
+            <h5>Day ${dayNumber}</h5>
+            <ul>
+              <li><strong>Morning:</strong> ${dayData.morning || "No activity planned"}</li>
+              <li><strong>Lunch:</strong> ${dayData.lunch || "No recommendation"}</li>
+              <li><strong>Afternoon:</strong> ${dayData.afternoon || "No activity planned"}</li>
+              <li><strong>Evening:</strong> ${dayData.evening || "No activity planned"}</li>
+            </ul>
+          </div>
+        `;
+      });
+  
+      // Add any missing days if the API didn't return enough
+      for (let i = itineraryDays.length; i < duration; i++) {
+        const dayNumber = i + 1;
+        itinerary += `
+          <div class="itinerary-day">
+            <h5>Day ${dayNumber}</h5>
+            <ul>
+              <li>No activities generated for this day</li>
+            </ul>
+          </div>
+        `;
+      }
+  
+      itinerary += `
+        <div class="transportation-info">
+          <h5>Transportation</h5>
+          <p>Bus tickets will be available for booking between all destinations in your itinerary.</p>
+        </div>
+      `;
+  
+      itineraryContent.innerHTML = itinerary;
+  
+    } catch (error) {
+      console.error("AI itinerary generation error:", error);
+      aiLoading.style.display = "none";
+      itineraryContent.innerHTML = `
+        <p class="error-message">Failed to generate itinerary. Please try again later.</p>
+        ${error.message ? `<p class="error-details">${error.message}</p>` : ''}
+      `;
+    }
 }
+
+
 document.addEventListener("DOMContentLoaded",()=>{
   Get_Cities()
   document.getElementById("ser").addEventListener("click",()=>{

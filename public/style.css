@@ -350,17 +350,22 @@ header {
   position: relative;
 }
 
+
 .form-group label {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: white;
+  color: var(--primary-color);
 }
 
 .form-group i {
   color: var(--accent-color);
   margin-right: 0.5rem;
+}
+
+#trip-budget {
+  margin-bottom: 20px;
 }
 
 .form-group select,
