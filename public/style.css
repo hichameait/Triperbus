@@ -123,6 +123,9 @@ img {
   color: var(--text-light);
 }
 
+.fa-map-marker-alt span{
+  color: white !important;
+}
 /* Buttons */
 .btn {
   display: inline-block;

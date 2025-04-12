@@ -1,6 +1,7 @@
 const url="http://localhost:3000"
 const selection_from=document.getElementById("cities_from")
 const selection_to=document.getElementById("cities_to")
+const selection_ai=document.getElementById("trip-starting-city")
 const resultContainer=document.getElementById("card1")
 const menuToggle=document.getElementById("menu-toggle")
 const navLinks=document.getElementById("nav-links")
@@ -59,15 +60,22 @@ async function Get_Cities(){
     }
     selection_from.innerHTML=`<option value="" disabled selected>Select Departure City</option>`
     selection_to.innerHTML=`<option value="" disabled selected>Select Arrival City</option>`
+    selection_ai.innerHTML=`<option value="">Select a city</option>`
+
     data.forEach((city)=>{
       const option_from=document.createElement("option")
       const option_to=document.createElement("option")
+      const option_ai=document.createElement("option")
+
       option_from.value=city.id
       option_from.textContent=city.name
       option_to.value=city.id
       option_to.textContent=city.name
+      option_ai.value=city.name
+      option_ai.textContent=city.name
       selection_from.appendChild(option_from)
       selection_to.appendChild(option_to)
+      selection_ai.appendChild(option_ai)
     })
   }catch(error){
     console.error("Error fetching cities:",error)
@@ -79,14 +87,18 @@ async function Get_Cities(){
         `
     const mockCities=[{id:1,name:"Casablanca"},{id:2,name:"Marrakech"},{id:3,name:"Fes"},{id:4,name:"Tangier"},{id:5,name:"Rabat"}]
     mockCities.forEach((city)=>{
-      const option_from=document.createElement("option")
-      const option_to=document.createElement("option")
+        const option_from=document.createElement("option")
+        const option_to=document.createElement("option")
+        const option_ai=document.createElement("option")
       option_from.value=city.id
       option_from.textContent=city.name
       option_to.value=city.id
       option_to.textContent=city.name
+      option_ai.value=city.name
+      option_ai.textContent=city.name
       selection_from.appendChild(option_from)
       selection_to.appendChild(option_to)
+      selection_ai.appendChild(option_ai)
     })
   }
 }
